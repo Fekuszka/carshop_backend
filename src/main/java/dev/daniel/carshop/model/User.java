@@ -1,9 +1,6 @@
 package dev.daniel.carshop.model;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,6 +14,7 @@ import java.util.Set;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table (name = "users")
 public class User{
@@ -32,13 +30,13 @@ public class User{
 
     private String password;
 
-    @OneToMany(cascade =  CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(cascade =  CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
             name = "users_roles",
             joinColumns = @JoinColumn(name ="user_id"),
             inverseJoinColumns = @JoinColumn(name="role_id")
     )
-    private String role;
+    private Role role;
 
 
 }

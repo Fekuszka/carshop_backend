@@ -13,16 +13,20 @@ public class MyUserDetails implements UserDetails {
         this.user = user;
     }
 
+
+    public SimpleGrantedAuthority getAuthority(){
+        Role role = user.getRole();
+        SimpleGrantedAuthority authority = new SimpleGrantedAuthority(role.getName());
+
+
+        return authority;
+    }
+
     @Override
-    public Collection<? extends GrantedAuthority> getAuthorities(){
-        Set<Role> roles = user.getRoles();
-        List<SimpleGrantedAuthority> authorities = new ArrayList<>();
-
-        for (Role role : roles) {
-            authorities.add(new SimpleGrantedAuthority(role.getName()));
-        }
-
-        return authorities;
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        List<SimpleGrantedAuthority> list = new ArrayList<>();
+        list.add(getAuthority());
+        return list;
     }
 
     @Override

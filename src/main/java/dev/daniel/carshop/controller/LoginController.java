@@ -18,11 +18,16 @@ public class LoginController {
     @Autowired
     private LoginService loginService;
 
+    @GetMapping("/login")
+    public String login(){
+        return "Hello Login";
+    }
+
     @PostMapping("/login")
     public ResponseEntity<LoginResponseDto> Login(@RequestBody LoginDto loginDto) throws Exception{
         System.out.println("logging post");
         String token = loginService.login(loginDto);
-        String role = loginService.getRoleByEmail(loginDto.getEmail());
+        String role = String.valueOf(loginService.getRoleByEmail(loginDto.getEmail()));
         return new ResponseEntity<>(new LoginResponseDto(token, role), HttpStatus.OK);
     }
 

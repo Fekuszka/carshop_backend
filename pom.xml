@@ -17,7 +17,7 @@
 		<java.version>17</java.version>
 		<node.version>v18.6.0</node.version>
 		<npm.version>8.13.2</npm.version>
-	</properties>d
+	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -40,6 +40,7 @@
 			<groupId>javax.xml.bind</groupId>
 			<artifactId>jaxb-api</artifactId>
 		</dependency>
+
 
 		<dependency>
 			<groupId>javax.validation</groupId>
