@@ -9,10 +9,8 @@ import java.util.Set;
 @Data
 public class LoginResponseDto {
     private String token;
-    private String role;
 
-    public LoginResponseDto(String token,  String role){
+    public LoginResponseDto(String token){
         this.token = token;
-        this.role = role;
     }
 }

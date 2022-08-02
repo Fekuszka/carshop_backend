@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000", allowedHeaders = "*")
 @RequestMapping(path = "/api/car")
+@CrossOrigin(origins = "http://localhost:3000", allowedHeaders = "*")
 public class CarController {
 
     @Autowired
